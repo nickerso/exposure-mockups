@@ -17,7 +17,7 @@ define([
 	"dojox/charting/Chart",
 	
 	// Require the theme of our choosing
-	"dojox/charting/themes/Claro",
+	"dojox/charting/themes/Shrooms",
 	
 	// Charting plugins:
 	
@@ -105,9 +105,9 @@ define([
 	chart.addSeries("Experimental data", potentialExperimental, {
 		plot: "experimental"
 	});
-	//chart.addSeries("Original experimental data", potentialExperimentalOriginal, {
-	//	plot: "experimental"
-	//});
+	chart.addSeries("Original experimental data", potentialExperimentalOriginal, {
+		plot: "experimental"
+	});
 	
 	// define our axes
 	chart.addAxis("V (mV)");
