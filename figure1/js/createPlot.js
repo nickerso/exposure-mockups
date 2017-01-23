@@ -98,11 +98,11 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)"
+	title: "V (mV)", titleOrientation: "away"
 	});
 	chart.addAxis("y", {
-		vertical: true
-	}, { title: "m.sub(&infin).sup(3)"
+		vertical: true,
+		title: "m.sub(&infin).sup(3)"
 	});
 	
 	// Add the tooltip for data points
