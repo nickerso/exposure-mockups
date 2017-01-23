@@ -69,7 +69,7 @@ define([
 	
 	// Create the chart within it's "holding" node
 	var chart = new Chart("figure1aGoesHere", { 
-		title: "Steady state activation curves",
+		title: "A: Steady state activation curves",
 		titlePos: "top",
 		titleGap: 25,
 		//titleFont: "normal normal normal 15pt Arial",
@@ -97,9 +97,12 @@ define([
 	});
 	
 	// define our axes
-	chart.addAxis("x");
+	chart.addAxis("x", {
+	title: "V (mV)"
+	});
 	chart.addAxis("y", {
 		vertical: true
+	}, { title: "m.sub(&infin).sup(3)"
 	});
 	
 	// Add the tooltip for data points
