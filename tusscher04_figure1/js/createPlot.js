@@ -54,17 +54,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
 		x: "V"
-		y: "m_inf3"
-	});
-	
-	// set up the experimental data source
-	var experimentalData = new CSV({
-		url: "/tusscher04_figure1/data/tusscher_04_figure1A_exp.csv"
-	});
-	// and the data series for the original experimental data
-	var potentialExperimentalOriginal = new DataSeries(experimentalData, {}, {
-		x: "V(mV)"
-		y: "m_inf^3"
+		y: "minf3"
 	});
 	
 	// set up temperature corrected experimental data 
@@ -74,7 +64,7 @@ define([
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
 		x: "V"
-		y: "m_inf^3"
+		y: "minf3"
 	});
 	
 	// Create the chart within it's "holding" node
@@ -102,16 +92,13 @@ define([
 	chart.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimental data", potentialExperimental, {
+	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
 		plot: "experimental"
 	});
-	//chart.addSeries("Original experimental data", potentialExperimentalOriginal, {
-	//	plot: "experimental"
-	//});
 	
 	// define our axes
-	chart.addAxis("V (mV)");
-	chart.addAxis("m.sub(&infin).sup(3)", {
+	chart.addAxis("x");
+	chart.addAxis("y", {
 		vertical: true
 	});
 	
