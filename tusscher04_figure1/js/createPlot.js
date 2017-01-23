@@ -17,7 +17,7 @@ define([
 	"dojox/charting/Chart",
 	
 	// Require the theme of our choosing
-	"dojox/charting/themes/Shrooms",
+	"dojox/charting/themes/Claro",
 	
 	// Charting plugins:
 	
