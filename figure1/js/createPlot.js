@@ -49,21 +49,21 @@ define([
 	
 	// set up the simulation data source
 	var simulationData = new CSV({
-		url: "/tusscher04_figure1/data/tusscher_04_figure1A_modeldata.csv"
+		url: "/figure1/data/model.csv"
 	});
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
-		x: "V"
+		x: "V",
 		y: "minf3"
 	});
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
-		url: "/tusscher04_figure1/data/tusscher_04_figure1A_exp_tempcorrected.csv"
+		url: "/figure1/data/exptemp.csv"
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
-		x: "V"
+		x: "V",
 		y: "minf3"
 	});
 	
