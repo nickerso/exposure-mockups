@@ -73,7 +73,7 @@ define([
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
-		x: "V(mV)"
+		x: "V"
 		y: "m_inf^3"
 	});
 	
