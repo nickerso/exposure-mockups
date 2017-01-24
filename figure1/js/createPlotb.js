@@ -49,22 +49,22 @@ define([
 	
 	// set up the simulation data source
 	var simulationData = new CSV({
-		url: "/figure1/data/model.csv"
+		url: "/figure1/data/model1b.csv"
 	});
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
 		x: "V",
-		y: "minf3"
+		y: "hinfjinf"
 	});
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
-		url: "/figure1/data/exptemp.csv"
+		url: "/figure1/data/exptemp1b.csv"
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
 		x: "V",
-		y: "minf3"
+		y: "hinfjinf"
 	});
 	
 	// Create the chart within it's "holding" node
