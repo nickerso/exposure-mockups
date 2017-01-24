@@ -68,7 +68,7 @@ define([
 	});
 	
 	// Create the chart within it's "holding" node
-	var chart = new Chart("figure1aGoesHere", { 
+	var charta = new Chart("figure1aGoesHere", { 
 		title: "A: Steady state activation curves",
 		titlePos: "top",
 		titleGap: 25,
@@ -77,30 +77,30 @@ define([
 	});
 	
 	// Set the theme
-	chart.setTheme(theme);
+	charta.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chart.addPlot("simulation", {
+	charta.addPlot("simulation", {
 		type: LinePlot
 	});
 	// and add a markers-only plot for the simulation data
-	chart.addPlot("experimental", {
+	charta.addPlot("experimental", {
 		type: MarkersOnlyPlot
 	});
 	
 	// Add the simulation data
-	chart.addSeries("Simulation results", potentialSimulationData, {
+	charta.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	charta.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
 		plot: "experimental"
 	});
 	
 	// define our axes
-	chart.addAxis("x", {
+	charta.addAxis("x", {
 	title: "V (mV)", titleOrientation: "away", min: -80.5
 	});
-	chart.addAxis("y", {
+	charta.addAxis("y", {
 		vertical: true,
 		title: "m_\u221e^3",
 		titleGap: 25,
@@ -109,16 +109,16 @@ define([
 	});
 	
 	// Add the tooltip for data points
-	new Tooltip(chart, "experimental", {
+	new Tooltip(charta, "experimental", {
 		text: function(o) {
 			return o.x + "," + o.y;
 		}
 	});
 	
-	chart.resize(500,500)
+	charta.resize(500,500)
 	
 	// Render the chart!
-	chart.render();
+	charta.render();
 
 	// This returned object becomes the defined value of this module
 	return {

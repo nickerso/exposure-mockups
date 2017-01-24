@@ -68,7 +68,7 @@ define([
 	});
 	
 	// Create the chart within it's "holding" node
-	var chart = new Chart("figure1bGoesHere", { 
+	var chartb = new Chart("figure1bGoesHere", { 
 		title: "B: Steady state inactivation curves",
 		titlePos: "top",
 		titleGap: 25,
@@ -77,30 +77,30 @@ define([
 	});
 	
 	// Set the theme
-	chart.setTheme(theme);
+	chartb.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chart.addPlot("simulation", {
+	chartb.addPlot("simulation", {
 		type: LinePlot
 	});
 	// and add a markers-only plot for the simulation data
-	chart.addPlot("experimental", {
+	chartb.addPlot("experimental", {
 		type: MarkersOnlyPlot
 	});
 	
 	// Add the simulation data
-	chart.addSeries("Simulation results", potentialSimulationData, {
+	chartb.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chartb.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
 		plot: "experimental"
 	});
 	
 	// define our axes
-	chart.addAxis("x", {
-	title: "V (mV)lolololol", titleOrientation: "away"
+	chartb.addAxis("x", {
+	title: "V (mV)", titleOrientation: "away"
 	});
-	chart.addAxis("y", {
+	chartb.addAxis("y", {
 		vertical: true,
 		title: "h_\u221e j_\u221e",
 		titleGap: 25,
@@ -109,16 +109,16 @@ define([
 	});
 	
 	// Add the tooltip for data points
-	new Tooltip(chart, "experimental", {
+	new Tooltip(chartb, "experimental", {
 		text: function(o) {
 			return o.x + "," + o.y;
 		}
 	});
 	
-	chart.resize(500,500)
+	chartb.resize(500,500)
 	
 	// Render the chart!
-	chart.render();
+	chartb.render();
 
 	// This returned object becomes the defined value of this module
 	return {
