@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>PMR Exposure Mockup: example with diagram</title>
+		<!-- configure Dojo -->
+		<script type="text/javascript">
+			// Instead of using data-dojo-config, we're creating a dojoConfig
+			// object *before* we load dojo.js; they're functionally identical,
+			// it's just easier to read this approach with a larger configuration.
+			var dojoConfig = {
+				async : true,
+				// This code registers the correct location of the "andre"
+				// package so we can load Dojo from the CDN whilst still
+				// being able to load local modules
+				packages : [ {
+					name : "andre",
+					location : location.pathname.replace(/\/[^/]*$/, '') + '/js'
+				} ],
+				gfxRenderer : "svg,silverlight,vml" // svg is first priority
+			};
+		</script>
+		<!-- required styling -->
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/resources/dojo.css">
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<!-- load Dojo -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/dojo.js"
+			type="text/javascript"></script>
+		<!-- and load our plotting and SVG handling modules -->
+		<script type="text/javascript">
+			require([ 'andre/createPlot', 'andre/svgDiagram' ], function(plotter, svg) {
+				plotter.createFigure1("figure1GoesHere", "figure1Legend");
+				svg.message("hello");
+				svg.registerEntities("diagram1", {
+					membrane: {
+						id: "membrane",
+						message: "This is the membrane"
+					},
+					i_Na: {
+						id: "i_Na",
+						message: "The sodium current"
+					}
+				});
+			});
+		</script>
+	</head>
+	<body class="claro" style="width: 100%">
+		<h1>PMR Exposure Mockup: example with diagram</h1>
+		<p>Some kind of introdcution goes here.</p>
+		<object id="diagram1" data="/example-diagram/images/drawing.svg" type="image/svg+xml" style="width: 40%">
+		</object>
+		<p>And then we talk about figure X from the paper, which could be a link to the paper itself.</p>
+		<div class="figure">
+			<div class="chart" id="figure1GoesHere"></div>
+			<div class="legend" id="figure1Legend"></div>
+		</div>
+	</body>
+</html>
