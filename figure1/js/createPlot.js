@@ -79,8 +79,6 @@ define([
 		titleFontColor: "default"
 	});
 	
-	var legend = new Legend({chart:chart}, "legenda");
-	
 	// Set the theme
 	chart.setTheme(theme);
 	
@@ -100,6 +98,9 @@ define([
 	chart.addSeries("Exp. data", potentialExperimental, {
 		plot: "experimental"
 	});
+	
+	// create legend 
+	var legend = new Legend({chart:chart}, "legenda");
 	
 	// define our axes
 	chart.addAxis("x", {
