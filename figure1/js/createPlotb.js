@@ -104,7 +104,8 @@ define([
 		vertical: true,
 		title: "m_\u221e^3",
 		titleGap: 25,
-		min: -0.05
+		min: -0.05,
+		max: 1
 	});
 	
 	// Add the tooltip for data points
