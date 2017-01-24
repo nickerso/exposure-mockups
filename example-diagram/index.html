@@ -35,13 +35,23 @@
 			require([ 'andre/createPlot', 'andre/svgDiagram' ], function(plotter, svg) {
 				plotter.createFigure1("figure1GoesHere", "figure1Legend");
 				svg.message("hello");
+				svg.registerEntities("diagram1", {
+					membrane: {
+						id: "membrane",
+						message: "This is the membrane"
+					},
+					i_Na: {
+						id: "i_Na",
+						message: "The sodium current"
+					}
+				});
 			});
 		</script>
 	</head>
 	<body class="claro" style="width: 100%">
 		<h1>PMR Exposure Mockup: example with diagram</h1>
 		<p>Some kind of introdcution goes here.</p>
-		<object data="/example-diagram/images/drawing.svg" type="image/svg+xml" style="width: 40%">
+		<object id="diagram1" data="/example-diagram/images/drawing.svg" type="image/svg+xml" style="width: 40%">
 		</object>
 		<p>And then we talk about figure X from the paper, which could be a link to the paper itself.</p>
 		<div class="figure">
