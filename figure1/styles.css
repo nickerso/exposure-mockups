@@ -11,3 +11,8 @@ div.figure1b {
 	border: 1px;
 	align: centre;
 }
+
+div.fastsodiumcurrent {
+	display: flex;
+  	justify-content: center;
+}
