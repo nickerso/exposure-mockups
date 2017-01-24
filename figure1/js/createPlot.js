@@ -98,13 +98,14 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)", titleOrientation: "away", min: -79.5
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "m_\u221e^3",
 		titleGap: 25,
-		max: 1.05
+		max: 1.05,
+		min: -0.05
 	});
 	
 	// Add the tooltip for data points
