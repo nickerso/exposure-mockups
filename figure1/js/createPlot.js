@@ -102,7 +102,7 @@ define([
 	});
 	chart.addAxis("y", {
 		vertical: true,
-		title: "m\u221e".sup(3),
+		title: "m + \u221e.sup()",
 		titleGap: 25
 	});
 	
