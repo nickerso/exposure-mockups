@@ -98,7 +98,7 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)lolololol", titleOrientation: "away"
 	});
 	chart.addAxis("y", {
 		vertical: true,
