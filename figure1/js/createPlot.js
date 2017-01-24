@@ -113,6 +113,8 @@ define([
 		}
 	});
 	
+	chart.resize(500,default)
+	
 	// Render the chart!
 	chart.render();
 
