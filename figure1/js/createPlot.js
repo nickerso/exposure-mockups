@@ -100,7 +100,7 @@ define([
 	});
 	
 	// create legend 
-	var legenda = new Legend({chart:figure1aGoesHere}, "legenda");
+	var legenda = new Legend({chart:chart}, "legenda");
 	
 	// define our axes
 	chart.addAxis("x", {
