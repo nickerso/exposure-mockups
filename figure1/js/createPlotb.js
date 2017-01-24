@@ -102,7 +102,7 @@ define([
 	});
 	chart.addAxis("y", {
 		vertical: true,
-		title: "m_\u221e^3",
+		title: "h_\u221ej_\u221e",
 		titleGap: 25,
 		min: -0.05,
 		max: 1
