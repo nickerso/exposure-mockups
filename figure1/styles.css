@@ -2,7 +2,7 @@
 
 div.figure {
 	width: 80%;
-	align: centre;
 	border: 1px;
-	text-align: center;
+	display: block;
+        margin: auto;
 }
