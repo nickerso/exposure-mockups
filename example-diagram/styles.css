@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+div.figure {
+	width: 100%;
+	border: 1px;
+}
+
+div.chart {
+	display: inline;
+	width: 80%;
+	float: left;
+}
+
+div.legend {
+	display: inline;
+	width: 20%;
+	float: right;
+}
