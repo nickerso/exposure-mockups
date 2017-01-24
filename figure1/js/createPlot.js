@@ -19,6 +19,9 @@ define([
 	// Require the theme of our choosing
 	"dojox/charting/themes/Shrooms",
 	
+	// Load the Legend widget class
+    "dojox/charting/widget/Legend",
+	
 	// Charting plugins:
 	
 	// Require the types of Plot that we'll be using
@@ -37,7 +40,7 @@ define([
 	
 	// Wait until the DOM is ready
 	"dojo/domReady!"
-], function(dom, CSV, DataSeries, Chart, theme, LinePlot, MarkersPlot, MarkersOnlyPlot, Tooltip) {
+], function(dom, CSV, DataSeries, Chart, theme, Legend, LinePlot, MarkersPlot, MarkersOnlyPlot, Tooltip) {
 	// Once all modules in the dependency list have loaded, this
 	// function is called to define the demo/myModule module.
 	//
@@ -76,6 +79,8 @@ define([
 		titleFontColor: "default"
 	});
 	
+	var legend = new Legend({chart:chart}, "legenda");
+	
 	// Set the theme
 	chart.setTheme(theme);
 	
@@ -89,10 +94,10 @@ define([
 	});
 	
 	// Add the simulation data
-	chart.addSeries("Simulation results", potentialSimulationData, {
+	chart.addSeries("Model data", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chart.addSeries("Exp. data", potentialExperimental, {
 		plot: "experimental"
 	});
 	
