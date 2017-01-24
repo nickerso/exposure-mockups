@@ -103,7 +103,8 @@ define([
 	chart.addAxis("y", {
 		vertical: true,
 		title: "m_\u221e^3",
-		titleGap: 25
+		titleGap: 25,
+		fixUpper: "major"
 	});
 	
 	// Add the tooltip for data points
