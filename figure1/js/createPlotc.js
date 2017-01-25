@@ -49,26 +49,26 @@ define([
 	
 	// set up the simulation data source
 	var simulationData = new CSV({
-		url: "/figure1/data/model1b.csv"
+		url: "/figure1/data/model1c.csv"
 	});
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
 		x: "V",
-		y: "hinfjinf"
+		y: "tau_m"
 	});
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
-		url: "/figure1/data/exptemp1b.csv"
+		url: "/figure1/data/exptemp1c.csv"
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
 		x: "V",
-		y: "hinfjinf"
+		y: "tau_m"
 	});
 	
 	// Create the chart within it's "holding" node
-	var chartb = new Chart("figure1cGoesHere", { 
+	var chartc = new Chart("figure1cGoesHere", { 
 		title: "C: Activation time constants",
 		titlePos: "top",
 		titleGap: 25,
@@ -77,48 +77,48 @@ define([
 	});
 	
 	// Set the theme
-	chartb.setTheme(theme);
+	chartc.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chartb.addPlot("simulation", {
+	chartc.addPlot("simulation", {
 		type: LinePlot
 	});
 	// and add a markers-only plot for the simulation data
-	chartb.addPlot("experimental", {
+	chartc.addPlot("experimental", {
 		type: MarkersOnlyPlot
 	});
 	
 	// Add the simulation data
-	chartb.addSeries("Simulation results", potentialSimulationData, {
+	chartc.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chartb.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chartc.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
 		plot: "experimental"
 	});
 	
 	// define our axes
-	chartb.addAxis("x", {
+	chartc.addAxis("x", {
 	title: "V (mV)", titleOrientation: "away"
 	});
-	chartb.addAxis("y", {
+	chartc.addAxis("y", {
 		vertical: true,
-		title: "h_\u221e j_\u221e",
+		title: "tau_m",
 		titleGap: 25,
 		min: -0.05,
 		max: 1
 	});
 	
 	// Add the tooltip for data points
-	new Tooltip(chartb, "experimental", {
+	new Tooltip(chartc, "experimental", {
 		text: function(o) {
 			return o.x + "," + o.y;
 		}
 	});
 	
-	chartb.resize(500,500)
+	chartc.resize(500,500)
 	
 	// Render the chart!
-	chartb.render();
+	chartc.render();
 
 	// This returned object becomes the defined value of this module
 	return {
