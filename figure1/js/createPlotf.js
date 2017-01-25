@@ -54,7 +54,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData80 = new DataSeries(simulationData80, {}, {
 		x: "ii",
-		y: "Ina"
+		y: "ina"
 	});
 	
 	// set up the simulation data source
@@ -65,7 +65,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData100 = new DataSeries(simulationData100, {}, {
 		x: "ii",
-		y: "Ina"
+		y: "ina"
 	});
 	
 	// set up the simulation data source
@@ -75,7 +75,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData120 = new DataSeries(simulationData120, {}, {
 		x: "ii",
-		y: "Ina"
+		y: "ina"
 	});
 	
 	// set up the simulation data source
@@ -85,7 +85,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData140 = new DataSeries(simulationData140, {}, {
 		x: "ii",
-		y: "Ina"
+		y: "ina"
 	});
 	
 	// Create the chart within it's "holding" node
