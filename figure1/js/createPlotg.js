@@ -87,6 +87,7 @@ define([
 		vertical: true,
 		title: "norm. steady state I_Na",
 		titleGap: 25,
+		min: 0,
 	});
 	
 	chart.resize(500,500)
