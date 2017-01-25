@@ -48,49 +48,18 @@ define([
 	var oldText = {};
 	
 	// set up the simulation data source
-	var simulationData80 = new CSV({
-		url: "/figure1/data/model1f80.csv"
+	var simulationData = new CSV({
+		url: "/figure1/data/model1g.csv"
 	});
 	// and the data series for the potential data
-	var potentialSimulationData80 = new DataSeries(simulationData80, {}, {
-		x: "ii",
-		y: "ina"
-	});
-	
-	// set up the simulation data source
-	var simulationData100 = new CSV({
-		url: "/figure1/data/model1f100.csv"
-	});
-	
-	// and the data series for the potential data
-	var potentialSimulationData100 = new DataSeries(simulationData100, {}, {
-		x: "ii",
-		y: "ina"
-	});
-	
-	// set up the simulation data source
-	var simulationData120 = new CSV({
-		url: "/figure1/data/model1f120.csv"
-	});
-	// and the data series for the potential data
-	var potentialSimulationData120 = new DataSeries(simulationData120, {}, {
-		x: "ii",
-		y: "ina"
-	});
-	
-	// set up the simulation data source
-	var simulationData140 = new CSV({
-		url: "/figure1/data/model1f140.csv"
-	});
-	// and the data series for the potential data
-	var potentialSimulationData140 = new DataSeries(simulationData140, {}, {
-		x: "ii",
+	var potentialSimulationData = new DataSeries(simulationData, {}, {
+		x: "freq",
 		y: "ina"
 	});
 	
 	// Create the chart within it's "holding" node
-	var chart = new Chart("figure1fGoesHere", { 
-		title: "F: Recovery from inactivation for different recovery potentials",
+	var chart = new Chart("figure1gGoesHere", { 
+		title: "G: Frequency dependence on I_Na",
 		titlePos: "top",
 		titleGap: 25,
 		//titleFont: "normal normal normal 15pt Arial",
@@ -101,49 +70,26 @@ define([
 	chart.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chart.addPlot("simulation80", {
-		type: LinePlot
-	});
-	// Add a line plot for the simulation data
-	chart.addPlot("simulation100", {
-		type: LinePlot
-	});
-	// Add a line plot for the simulation data
-	chart.addPlot("simulation120", {
-		type: LinePlot
-	});
-	// Add a line plot for the simulation data
-	chart.addPlot("simulation140", {
+	chart.addPlot("simulation", {
 		type: LinePlot
 	});
 	
-	
 	// Add the simulation data
-	chart.addSeries("Simulation results for 80 hp", potentialSimulationData80, {
-		plot: "simulation80"
-	});
-	// Add the simulation data
-	chart.addSeries("Simulation results for 100 hp", potentialSimulationData100, {
-		plot: "simulation100"
-	});
-	// Add the simulation data
-	chart.addSeries("Simulation results for 120 hp", potentialSimulationData120, {
-		plot: "simulation120"
-	});
-	// Add the simulation data
-	chart.addSeries("Simulation results for 140 hp", potentialSimulationData140, {
-		plot: "simulation140"
+	chart.addSeries("Simulation results for 37 degrees", potentialSimulationData, {
+		plot: "simulation"
 	});
 
 	// define our axes
 	chart.addAxis("x", {
-	title: "Interpulse Interval (ms)", titleOrientation: "away"
+	title: "Frequency (Hz)", titleOrientation: "away",
 	});
 	chart.addAxis("y", {
 		vertical: true,
-		title: "Normalized I_Na",
+		title: "norm. steady state I_Na",
 		titleGap: 25,
 	});
+	
+	chart.resize(500,500)
 	
 	// Render the chart!
 	chart.render();
