@@ -98,12 +98,13 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)", titleOrientation: "away", min: -120.5
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "tau_j",
 		titleGap: 25,
+		min: -0.05,
 	});
 	
 	// Add the tooltip for data points

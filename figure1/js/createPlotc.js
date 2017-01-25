@@ -104,6 +104,7 @@ define([
 		vertical: true,
 		title: "tau_m",
 		titleGap: 25,
+		max: 0.15,
 	});
 	
 	// Add the tooltip for data points
