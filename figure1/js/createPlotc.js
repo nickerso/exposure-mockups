@@ -68,7 +68,7 @@ define([
 	});
 	
 	// Create the chart within it's "holding" node
-	var chartc = new Chart("figure1cGoesHere", { 
+	var chart = new Chart("figure1cGoesHere", { 
 		title: "C: Activation time constants",
 		titlePos: "top",
 		titleGap: 25,
@@ -77,48 +77,46 @@ define([
 	});
 	
 	// Set the theme
-	chartc.setTheme(theme);
+	chart.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chartc.addPlot("simulation", {
+	chart.addPlot("simulation", {
 		type: LinePlot
 	});
 	// and add a markers-only plot for the simulation data
-	chartc.addPlot("experimental", {
+	chart.addPlot("experimental", {
 		type: MarkersOnlyPlot
 	});
 	
 	// Add the simulation data
-	chartc.addSeries("Simulation results", potentialSimulationData, {
+	chart.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chartc.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
 		plot: "experimental"
 	});
 	
 	// define our axes
-	chartc.addAxis("x", {
+	chart.addAxis("x", {
 	title: "V (mV)", titleOrientation: "away"
 	});
-	chartc.addAxis("y", {
+	chart.addAxis("y", {
 		vertical: true,
 		title: "tau_m",
 		titleGap: 25,
-		min: -0.05,
-		max: 1
 	});
 	
 	// Add the tooltip for data points
-	new Tooltip(chartc, "experimental", {
+	new Tooltip(chart, "experimental", {
 		text: function(o) {
 			return o.x + "," + o.y;
 		}
 	});
 	
-	chartc.resize(500,500)
+	chart.resize(500,500)
 	
 	// Render the chart!
-	chartc.render();
+	chart.render();
 
 	// This returned object becomes the defined value of this module
 	return {
