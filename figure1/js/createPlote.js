@@ -69,7 +69,7 @@ define([
 	
 	// Create the chart within it's "holding" node
 	var chartb = new Chart("figure1eGoesHere", { 
-		title: "B: Steady state inactivation curves",
+		title: "E: Slow Inactivation time constants",
 		titlePos: "top",
 		titleGap: 25,
 		//titleFont: "normal normal normal 15pt Arial",
