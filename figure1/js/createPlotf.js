@@ -48,27 +48,48 @@ define([
 	var oldText = {};
 	
 	// set up the simulation data source
-	var simulationData = new CSV({
-		url: "/figure1/data/model1b.csv"
+	var simulationData80 = new CSV({
+		url: "/figure1/data/model1f80.csv"
 	});
 	// and the data series for the potential data
-	var potentialSimulationData = new DataSeries(simulationData, {}, {
-		x: "V",
-		y: "hinfjinf"
+	var potentialSimulationData80 = new DataSeries(simulationData80, {}, {
+		x: "ii",
+		y: "Ina"
 	});
 	
-	// set up temperature corrected experimental data 
-	var experimentalDataTemp = new CSV ({
-		url: "/figure1/data/exptemp1b.csv"
-	})
-	// and the data series for the temperature corrected experimental data used in the paper
-	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
-		x: "V",
-		y: "hinfjinf"
+	// set up the simulation data source
+	var simulationData100 = new CSV({
+		url: "/figure1/data/model1f100.csv"
+	});
+	
+	// and the data series for the potential data
+	var potentialSimulationData100 = new DataSeries(simulationData100, {}, {
+		x: "ii",
+		y: "Ina"
+	});
+	
+	// set up the simulation data source
+	var simulationData120 = new CSV({
+		url: "/figure1/data/model1f120.csv"
+	});
+	// and the data series for the potential data
+	var potentialSimulationData120 = new DataSeries(simulationData120, {}, {
+		x: "ii",
+		y: "Ina"
+	});
+	
+	// set up the simulation data source
+	var simulationData140 = new CSV({
+		url: "/figure1/data/model1f140.csv"
+	});
+	// and the data series for the potential data
+	var potentialSimulationData140 = new DataSeries(simulationData140, {}, {
+		x: "ii",
+		y: "Ina"
 	});
 	
 	// Create the chart within it's "holding" node
-	var chartb = new Chart("figure1fGoesHere", { 
+	var chart = new Chart("figure1fGoesHere", { 
 		title: "F: Recovery from inactivation for different recovery potentials",
 		titlePos: "top",
 		titleGap: 25,
@@ -77,48 +98,64 @@ define([
 	});
 	
 	// Set the theme
-	chartb.setTheme(theme);
+	chart.setTheme(theme);
 	
 	// Add a line plot for the simulation data
-	chartb.addPlot("simulation", {
+	chart.addPlot("simulation80", {
 		type: LinePlot
 	});
-	// and add a markers-only plot for the simulation data
-	chartb.addPlot("experimental", {
-		type: MarkersOnlyPlot
+	// Add a line plot for the simulation data
+	chart.addPlot("simulation100", {
+		type: LinePlot
 	});
+	// Add a line plot for the simulation data
+	chart.addPlot("simulation120", {
+		type: LinePlot
+	});
+	// Add a line plot for the simulation data
+	chart.addPlot("simulation140", {
+		type: LinePlot
+	});
+	
 	
 	// Add the simulation data
-	chartb.addSeries("Simulation results", potentialSimulationData, {
-		plot: "simulation"
+	chart.addSeries("Simulation results for 80 hp", potentialSimulationData80, {
+		plot: "simulation80"
 	});
-	chartb.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
-		plot: "experimental"
+	// Add the simulation data
+	chart.addSeries("Simulation results for 100 hp", potentialSimulationData100, {
+		plot: "simulation100"
 	});
-	
+	// Add the simulation data
+	chart.addSeries("Simulation results for 120 hp", potentialSimulationData120, {
+		plot: "simulation120"
+	});
+	// Add the simulation data
+	chart.addSeries("Simulation results for 140 hp", potentialSimulationData140, {
+		plot: "simulation140"
+	});
+
 	// define our axes
-	chartb.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	chart.addAxis("x", {
+	title: "Interpulse Interval (ms)", titleOrientation: "away"
 	});
-	chartb.addAxis("y", {
+	chart.addAxis("y", {
 		vertical: true,
-		title: "h_\u221e j_\u221e",
+		title: "Normalized I_Na",
 		titleGap: 25,
-		min: -0.05,
-		max: 1
 	});
 	
 	// Add the tooltip for data points
-	new Tooltip(chartb, "experimental", {
+	new Tooltip(chart, "experimental", {
 		text: function(o) {
 			return o.x + "," + o.y;
 		}
 	});
 	
-	chartb.resize(500,500)
+	chart.resize(500,500)
 	
 	// Render the chart!
-	chartb.render();
+	chart.render();
 
 	// This returned object becomes the defined value of this module
 	return {
