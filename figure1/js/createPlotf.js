@@ -152,8 +152,6 @@ define([
 		}
 	});
 	
-	chart.resize(500,500)
-	
 	// Render the chart!
 	chart.render();
 
