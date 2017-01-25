@@ -23,11 +23,6 @@ define([
 	
 	// Require the types of Plot that we'll be using
 	"dojox/charting/plot2d/Lines",
-	"dojox/charting/plot2d/Markers",
-	"dojox/charting/plot2d/MarkersOnly",
-	
-	// we want to use tool tips to highlight data points
-	"dojox/charting/action2d/Tooltip",
 	
 	// our data
 	//"dojo/text!demo/data/example-pie.data",
@@ -37,7 +32,7 @@ define([
 	
 	// Wait until the DOM is ready
 	"dojo/domReady!"
-], function(dom, CSV, DataSeries, Chart, theme, LinePlot, MarkersPlot, MarkersOnlyPlot, Tooltip) {
+], function(dom, CSV, DataSeries, Chart, theme, LinePlot) {
 	// Once all modules in the dependency list have loaded, this
 	// function is called to define the demo/myModule module.
 	//
