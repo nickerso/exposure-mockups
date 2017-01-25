@@ -54,7 +54,7 @@ define([
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
 		x: "V",
-		y: "tau_m"
+		y: "taum"
 	});
 	
 	// set up temperature corrected experimental data 
@@ -64,7 +64,7 @@ define([
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
 		x: "V",
-		y: "tau_m"
+		y: "taum"
 	});
 	
 	// Create the chart within it's "holding" node
