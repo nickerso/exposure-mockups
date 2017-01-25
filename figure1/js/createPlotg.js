@@ -81,7 +81,7 @@ define([
 
 	// define our axes
 	chart.addAxis("x", {
-	title: "Frequency (Hz)", titleOrientation: "away",
+	title: "Frequency (Hz)", titleOrientation: "away", max: 2,
 	});
 	chart.addAxis("y", {
 		vertical: true,
