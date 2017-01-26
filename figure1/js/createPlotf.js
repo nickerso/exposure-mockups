@@ -64,24 +64,24 @@ define([
 	});
 	
 	// set up the simulation data source
-	//var simulationData120 = new CSV({
-	//	url: "/figure1/data/model1f120.csv"
-	//});
+	var simulationData120 = new CSV({
+		url: "/figure1/data/model1f120.csv"
+	});
 	// and the data series for the potential data
-	//var potentialSimulationData120 = new DataSeries(simulationData120, {}, {
-	//	x: "ii",
-	//	y: "ina"
-	//});
+	var potentialSimulationData120 = new DataSeries(simulationData120, {}, {
+		x: "ii",
+		y: "ina"
+	});
 	
 	// set up the simulation data source
-	//var simulationData140 = new CSV({
-	//	url: "/figure1/data/model1f140.csv"
-	//});
+	var simulationData140 = new CSV({
+		url: "/figure1/data/model1f140.csv"
+	});
 	// and the data series for the potential data
-	//var potentialSimulationData140 = new DataSeries(simulationData140, {}, {
-	//	x: "ii",
-	//	y: "ina"
-	//});
+	var potentialSimulationData140 = new DataSeries(simulationData140, {}, {
+		x: "ii",
+		y: "ina"
+	});
 	
 	// Create the chart within it's "holding" node
 	var chart = new Chart("figure1fGoesHere", { 
@@ -104,13 +104,13 @@ define([
 		type: LinePlot
 	});
 	// Add a line plot for the simulation data
-	//chart.addPlot("simulation120", {
-	//	type: LinePlot
-	//});
+	chart.addPlot("simulation120", {
+		type: LinePlot
+	});
 	// Add a line plot for the simulation data
-	//chart.addPlot("simulation140", {
-	//	type: LinePlot
-	//});
+	chart.addPlot("simulation140", {
+		type: LinePlot
+	});
 	
 	
 	// Add the simulation data
@@ -122,13 +122,13 @@ define([
 		plot: "simulation100"
 	});
 	// Add the simulation data
-	//chart.addSeries("Simulation results for 120 hp", potentialSimulationData120, {
-	//	plot: "simulation120"
-	//});
+	chart.addSeries("Simulation results for 120 hp", potentialSimulationData120, {
+		plot: "simulation120"
+	});
 	// Add the simulation data
-	//chart.addSeries("Simulation results for 140 hp", potentialSimulationData140, {
-	//	plot: "simulation140"
-	//});
+	chart.addSeries("Simulation results for 140 hp", potentialSimulationData140, {
+		plot: "simulation140"
+	});
 
 	// define our axes
 	chart.addAxis("x", {
