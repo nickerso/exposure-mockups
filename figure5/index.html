@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
 	<head>
 		<meta charset="utf-8">
 		<title>TenTusscher et al. 2004: Figure 1</title>
@@ -50,7 +75,9 @@
 		<div class="figure5a">
 			<div id="figure1aGoesHere" >
 		</div>
-		
+		<div class="tooltip">Hover over me
+			<span class="tooltiptext">Tooltip text</span>
+		</div>
 		<p>
 		[1] Hodgkin, A.L. & Huxley, A.F. (1952). A quantitative description of membrane current and its application to conduction and excitation in nerve. <cite>The Journal of Physiology. 117</cite>(4). 500-544.</br>
 		[2] Beeler, G.W. & Reuter, H. (1977). Reconstruction of the action potential of ventricular myocardial fibres. <cite>The Journal of Physiology. 268</cite>(1). 177-210.</br>
