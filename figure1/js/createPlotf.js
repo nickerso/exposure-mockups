@@ -53,15 +53,15 @@ define([
 	});
 	
 	// set up the simulation data source
-	//var simulationData100 = new CSV({
-	//	url: "/figure1/data/model1f100.csv"
-	//});
+	var simulationData100 = new CSV({
+		url: "/figure1/data/model1f100.csv"
+	});
 	
 	// and the data series for the potential data
-	//var potentialSimulationData100 = new DataSeries(simulationData100, {}, {
-	//	x: "ii",
-	//	y: "ina"
-	//});
+	var potentialSimulationData100 = new DataSeries(simulationData100, {}, {
+		x: "ii",
+		y: "ina"
+	});
 	
 	// set up the simulation data source
 	//var simulationData120 = new CSV({
@@ -100,9 +100,9 @@ define([
 		type: LinePlot
 	});
 	// Add a line plot for the simulation data
-	//chart.addPlot("simulation100", {
-	//	type: LinePlot
-	//});
+	chart.addPlot("simulation100", {
+		type: LinePlot
+	});
 	// Add a line plot for the simulation data
 	//chart.addPlot("simulation120", {
 	//	type: LinePlot
@@ -118,9 +118,9 @@ define([
 		plot: "simulation80"
 	});
 	// Add the simulation data
-	//chart.addSeries("Simulation results for 100 hp", potentialSimulationData100, {
-	//	plot: "simulation100"
-	//});
+	chart.addSeries("Simulation results for 100 hp", potentialSimulationData100, {
+		plot: "simulation100"
+	});
 	// Add the simulation data
 	//chart.addSeries("Simulation results for 120 hp", potentialSimulationData120, {
 	//	plot: "simulation120"
