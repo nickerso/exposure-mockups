@@ -98,13 +98,14 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away", max:100.5
+	title: "V (mV)", titleOrientation: "away", max:102, min:-102
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "x_sinf^2",
 		titleGap: 25,
 		max: 1.01,
+		min:-0.01,
 		
 	});
 	
