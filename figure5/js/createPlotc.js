@@ -92,7 +92,7 @@ define([
 	chart.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chart.addSeries("Experimental data", potentialExperimental, {
 		plot: "experimental"
 	});
 	
