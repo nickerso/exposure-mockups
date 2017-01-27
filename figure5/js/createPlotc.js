@@ -47,15 +47,15 @@ define([
 
 	var oldText = {};
 	
-	// set up the simulation data source
-	var simulationData = new CSV({
-		url: "/figure5/data/model5cis not right data.csv"
-	});
+	// set up the simulation data source, model data is incorrect for 5c
+	//var simulationData = new CSV({
+	//	url: "/figure5/data/model5c.csv"
+	//});
 	// and the data series for the potential data
-	var potentialSimulationData = new DataSeries(simulationData, {}, {
-		x: "V",
-		y: "I"
-	});
+	//var potentialSimulationData = new DataSeries(simulationData, {}, {
+	//	x: "V",
+	//	y: "I"
+	//});
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
@@ -89,9 +89,9 @@ define([
 	});
 	
 	// Add the simulation data
-	chart.addSeries("Simulation results", potentialSimulationData, {
-		plot: "simulation"
-	});
+	//chart.addSeries("Simulation results", potentialSimulationData, {
+	//	plot: "simulation"
+	//});
 	chart.addSeries("Experimental data", potentialExperimental, {
 		plot: "experimental"
 	});
