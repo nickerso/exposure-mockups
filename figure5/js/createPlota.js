@@ -49,7 +49,7 @@ define([
 	
 	// set up the simulation data source
 	var simulationData = new CSV({
-		url: "/figure1/data/model5a.csv"
+		url: "/figure5/data/model5a.csv"
 	});
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
@@ -59,7 +59,7 @@ define([
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
-		url: "/figure1/data/exp5a.csv"
+		url: "/figure5/data/exp5a.csv"
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
