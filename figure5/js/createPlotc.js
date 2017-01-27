@@ -59,7 +59,7 @@ define([
 	
 	// set up temperature corrected experimental data 
 	var experimentalDataTemp = new CSV ({
-		url: "/figure5/data/exptemp5c.csv"
+		url: "/figure5/data/exp5c.csv"
 	})
 	// and the data series for the temperature corrected experimental data used in the paper
 	var potentialExperimental = new DataSeries(experimentalDataTemp, {}, {
