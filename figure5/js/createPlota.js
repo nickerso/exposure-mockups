@@ -92,18 +92,19 @@ define([
 	chart.addSeries("Simulation results", potentialSimulationData, {
 		plot: "simulation"
 	});
-	chart.addSeries("Experimentall data, temperature corrected", potentialExperimental, {
+	chart.addSeries("Experimental data", potentialExperimental, {
 		plot: "experimental"
 	});
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)", titleOrientation: "away", max:100.5
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "x_sinf^2",
 		titleGap: 25,
+		max: 1.01,
 		
 	});
 	
