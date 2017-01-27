@@ -49,7 +49,7 @@ define([
 	
 	// set up the simulation data source
 	var simulationData = new CSV({
-		url: "/figure5/data/model5c.csv"
+		url: "/figure5/data/model5cis not right data.csv"
 	});
 	// and the data series for the potential data
 	var potentialSimulationData = new DataSeries(simulationData, {}, {
@@ -98,13 +98,13 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)", titleOrientation: "away",max:62
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "I (pA/pF)",
 		titleGap: 25,
-		
+		max:10.1,
 	});
 	
 	// Add the tooltip for data points
