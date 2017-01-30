@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    text-align: center;
+	width: 700px;
+    border-radius: 6px;
+    padding: 5px 0;
+	border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+	background-color: white;
+	
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+	<head>
+		<meta charset="utf-8">
+		<title>TenTusscher et al. 2004: Figure 1</title>
+		<!-- configure Dojo -->
+		<script type="text/javascript">
+			// Instead of using data-dojo-config, we're creating a dojoConfig
+			// object *before* we load dojo.js; they're functionally identical,
+			// it's just easier to read this approach with a larger configuration.
+			var dojoConfig = {
+				async : true,
+				// This code registers the correct location of the "andre"
+				// package so we can load Dojo from the CDN whilst still
+				// being able to load local modules
+				packages : [ {
+					name : "andre",
+					location : location.pathname.replace(/\/[^/]*$/, '') + '/js'
+				} ],
+				gfxRenderer : "svg,silverlight,vml" // svg is first priority
+			};
+		</script>
+		<!-- required styling -->
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/resources/dojo.css">
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<!-- load Dojo -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/dojo.js"
+			type="text/javascript"></script>
+		<!-- and load our plotting module -->
+		<script type="text/javascript">
+			require([ 'andre/createPlota' ], function(plotter) {
+		
+			});
+		</script>
+		<script type="text/javascript">
+			require([ 'andre/createPlotb' ], function(plotter) {
+		
+			});
+		</script>
+		<script type="text/javascript">
+			require([ 'andre/createPlotc' ], function(plotter) {
+		
+			});
+		</script>
+	</head>
+	<body class="claro" style="width: 100%">
+		<h1><b>TenTusscher et al. 2004: Figure 5</b></h1>
+		<p></p>
+		<p> Figure 5 displays the steady state and time constant curves for the slow delayed, rectifying, potassium current (<img src="https://latex.codecogs.com/svg.latex?I_{Ks}" title="I_{Ks}" align="top"/>). 
+		The equation for this component is presented below. Hover over the relevant component and parameter(s) to find out about their derivation and why these specific equations/values are used. </p>
+		<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<div class="tooltip"><img src="https://latex.codecogs.com/svg.latex?I_{Ks}" title="I_{Ks}" align="middle" /> 
+				<span class="tooltiptext">This component is based on the formulation developed in the CRN model, Courtemanche et al. (1998). The model of this paper exists in the <a href="https://models.physiomeproject.org/workspace/courtemanche_ramirez_nattel_1998" target="_blank"> physiome repository </a> and the related component is called slow_delayed_rectifier_K_channel. It is assumed that the component is selective for potassium ions. <sup>[1]</sup></span>
+			</div>
+			 =
+			<div class="tooltip"> <img src="https://latex.codecogs.com/svg.latex?G_{Ks}" title="G_{Ks}" align="middle"/>
+				<span class="tooltiptext">The value of this parameter is derived from Pereon et al. (2000) <sup>[2]</sup>. It is based on data obtained from experiments done on human ventricular tissue at 37 &degC; these are the desired conditions for the Tusscher model.</span>
+			</div>
+			<img src="https://latex.codecogs.com/gif.latex?x_{s}^{2}(V-E_{Ks})" title="x_{s}^{2}(V-E_{Ks})" align="middle"/>&emsp;&emsp;&emsp;(1)
+		</div>
+		<p></br></br></p>
+		<p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The experimental steady-state data displayed in figure 5A (represented as the points) is from Li et al. (1996) <sup>[3]</sup> . Similar to the Tusscher model, experiments were performed on human ventricular cells and conducted at a </br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;temperature of 36 &degC. </p>		
+		
+		<div class="figure5a">
+			<div id="figure5aGoesHere" >
+		</div>
+		<p></br></p>
+		<p> The experimental activation time constants shown by figure 5B are taken from Virag et al. (2001) <sup>[4]</sup> and Wang et al. (1994) <sup>[5]</sup>. The experiments in Virag et al. were performed on human ventricular myocytes at 37 &degC whereas those in Wang et al. were performed on human atrial myocytes at 36 &degC. </p>
+		
+		<div class="figure5b">
+			<div id="figure5bGoesHere" >
+		</div>
+		<p></br></p>
+		<p> The experimental I-V curves seen in figure 5C are taken from Li et al. (1996) <sup>[3]</sup> which has similar protocol. Data is rescaled by a factor of 12.5 and as mentioned above experiments in Li et al. were performed on human ventricular cells and conducted at a temperature of 36 &degC. </p>
+		
+		<div class="figure5c">
+			<div id="figure5cGoesHere" >
+		</div>
+		<p>
+		[1] Courtemanche, M. & Ramirez, R.J. & Nattel, S. (1998). Ionic mechanisms underlying human atrial action potential properties: insights from a mathematical model. <i>Am. J. Physiol. 275</i>(1). 301-321. </br>
+		[2] Pereon, Y. & Demolombe, S. & Baro, I. & Drouin, E. & Charpentier, F. & Escande, D. (2000). Differential expression of KvLQT1 isoforms across the human ventricular wall. <i>Am. J. Physiol. Heart Circ. Physiol. 278</i>(6). 1908-1915. </br>
+		[3] Li, G. & Feng, J. & Yue, L. & Carrier, M. & Nattel, S. (1996). Evidence for Two Components of Delayed Rectifier K+ Current in Human Ventricular Myocytes. <i>Circulation Research. 78</i>(1). 689-696. </br>
+		[4] Virag, L. & Iost, N. & Opincariu, M. & Szolnoky, J. & Szecsi, J. & Bogats, G. & Szenohradszky, P. & Varro. A. & Papp, J.G. (2001). The slow component of the delayed rectifier potassium current in undiseased human ventricular myocytes. <i>Cardiovascular Research. 49</i>(4). 790-797. </br>
+		[5] Wang, Z. & Fermini, B. & Nattel, S. (1994). Rapid and slow components of delayed rectifier current in human atrial myocytes. <i>Cardiovascular Research. 28</i>(10). 1540-1546. </br></p>
+	</body>
+</html>
