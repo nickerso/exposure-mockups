@@ -31,6 +31,33 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TenTusscher et al. 2004: Na/Ca Exchanger Current</title>
+		<!-- configure Dojo -->
+		<script type="text/javascript">
+			// Instead of using data-dojo-config, we're creating a dojoConfig
+			// object *before* we load dojo.js; they're functionally identical,
+			// it's just easier to read this approach with a larger configuration.
+			var dojoConfig = {
+				async : true,
+				// This code registers the correct location of the "andre"
+				// package so we can load Dojo from the CDN whilst still
+				// being able to load local modules
+				packages : [ {
+					name : "andre",
+					location : location.pathname.replace(/\/[^/]*$/, '') + '/js'
+				} ],
+				gfxRenderer : "svg,silverlight,vml" // svg is first priority
+			};
+		</script>
+		<!-- required styling -->
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/resources/dojo.css">
+		<link rel="stylesheet" type="text/css"
+			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<!-- load Dojo -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/dojo.js"
+			type="text/javascript"></script>
 	</head>
 	<body class="claro" style="width: 100%">
 		<h1><b>TenTusscher et al. 2004: Na<sup>+</sup>/Ca<sup>+</sup> Exchanger Current</b></h1>
