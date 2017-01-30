@@ -92,6 +92,7 @@ define([
 	//chart.addSeries("Simulation results", potentialSimulationData, {
 	//	plot: "simulation"
 	//});
+	//});
 	chart.addSeries("Experimental data", potentialExperimental, {
 		plot: "experimental"
 	});
@@ -105,7 +106,7 @@ define([
 		title: "I (pA/pF)",
 		titleGap: 25,
 		max:10.1,
-		-0.1,
+		min:-0.1,
 	});
 	
 	// Add the tooltip for data points
