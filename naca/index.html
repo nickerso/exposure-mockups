@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<style>
+	<style>
 .tooltip {
     position: relative;
     display: inline-block;
@@ -18,7 +18,7 @@
     border-left: 1px solid black;
     border-right: 1px solid black;
 	background-color: white;
-	
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
@@ -27,12 +27,12 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-</style>
+	</style>
 	<head>
 		<meta charset="utf-8">
-		<title>TenTusscher et al. 2004: Na/Ca Exchanger Current</title>
-		<!-- configure Dojo -->
-		<script type="text/javascript">
+			<title>TenTusscher et al. 2004: Na/Ca Exchanger Current</title>
+			<!-- configure Dojo -->
+			<script type="text/javascript">
 			// Instead of using data-dojo-config, we're creating a dojoConfig
 			// object *before* we load dojo.js; they're functionally identical,
 			// it's just easier to read this approach with a larger configuration.
@@ -47,31 +47,59 @@
 				} ],
 				gfxRenderer : "svg,silverlight,vml" // svg is first priority
 			};
-		</script>
-		<!-- required styling -->
-		<link rel="stylesheet" type="text/css"
+			</script>
+			<!-- required styling -->
+			<link rel="stylesheet" type="text/css"
 			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/resources/dojo.css">
-		<link rel="stylesheet" type="text/css"
+				<link rel="stylesheet" type="text/css"
 			href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/claro/claro.css">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<!-- load Dojo -->
-		<script
+					<link rel="stylesheet" type="text/css" href="styles.css">
+						<!-- load Dojo -->
+						<script
 			src="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/dojo.js"
-			type="text/javascript"></script>
-	</head>
-	<body class="claro" style="width: 100%">
-		<h1><b>TenTusscher et al. 2004: Na<sup>+</sup>/Ca<sup>+</sup> Exchanger Current</b></h1>
-		<p></p>
-		<p> The equation for this component in the Tusscher model is presented below.  </p>
-		<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-			<img src="https://latex.codecogs.com/gif.latex?I_{NaCa}&space;=&space;k_{NaCa}\tfrac{e^{\gamma&space;VF/RT}Na_{i}^{3}Ca_{o}\&space;-\&space;e^{(\gamma&space;-&space;1)&space;VF/RT}Na_{o}^{3}Ca_{i}\alpha&space;}{(K_{mNai}^{3}\&space;&plus;\&space;Na_{o}^{3})(K_{mCa}\&space;&plus;\&space;Ca_{o})(1\&space;&plus;\&space;k_{sat}e^{(\gamma&space;-&space;1)&space;VF/RT})}" title="I_{NaCa} = k_{NaCa}\tfrac{e^{\gamma VF/RT}Na_{i}^{3}Ca_{o}\ -\ e^{(\gamma - 1) VF/RT}Na_{o}^{3}Ca_{i}\alpha }{(K_{mNai}^{3}\ +\ Na_{o}^{3})(K_{mCa}\ +\ Ca_{o})(1\ +\ k_{sat}e^{(\gamma - 1) VF/RT})}" />
-		</div>
-		
-		<p>
+			type="text/javascript">
+						</script>
+					</head>
+					<body class="claro" style="width: 100%">
+						<h1>
+							<b>TenTusscher et al. 2004: Na<sup>+</sup>/Ca<sup>+</sup> Exchanger Current</b>
+						</h1>
+						<p/>
+						<p> The equation for this component in the Tusscher model is presented below.  </p>
+						<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							<img src="https://latex.codecogs.com/gif.latex?I_{NaCa}&space;=&space;k_{NaCa}\tfrac{e^{\gamma&space;VF/RT}Na_{i}^{3}Ca_{o}\&space;-\&space;e^{(\gamma&space;-&space;1)&space;VF/RT}Na_{o}^{3}Ca_{i}\alpha&space;}{(K_{mNai}^{3}\&space;&plus;\&space;Na_{o}^{3})(K_{mCa}\&space;&plus;\&space;Ca_{o})(1\&space;&plus;\&space;k_{sat}e^{(\gamma&space;-&space;1)&space;VF/RT})}" title="I_{NaCa} = k_{NaCa}\tfrac{e^{\gamma VF/RT}Na_{i}^{3}Ca_{o}\ -\ e^{(\gamma - 1) VF/RT}Na_{o}^{3}Ca_{i}\alpha }{(K_{mNai}^{3}\ +\ Na_{o}^{3})(K_{mCa}\ +\ Ca_{o})(1\ +\ k_{sat}e^{(\gamma - 1) VF/RT})}" />
+						</div>
+
+						<table style="width:100%">
+							<tr>
+								<th>Firstname</th>
+								<th>Lastname</th> 
+								<th>Age</th>
+							</tr>
+							<tr>
+								<td>Jill</td>
+								<td>Smith</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>Eve</td>
+								<td>Jackson</td>
+								<td>94</td>
+							</tr>
+							<tr>
+								<td>John</td>
+								<td>Doe</td>
+								<td>80</td>
+							</tr>
+						</table>
+
+
+						<p>
 		[1] Courtemanche, M. & Ramirez, R.J. & Nattel, S. (1998). Ionic mechanisms underlying human atrial action potential properties: insights from a mathematical model. <i>Am. J. Physiol. 275</i>(1). 301-321. </br>
 		[2] Pereon, Y. & Demolombe, S. & Baro, I. & Drouin, E. & Charpentier, F. & Escande, D. (2000). Differential expression of KvLQT1 isoforms across the human ventricular wall. <i>Am. J. Physiol. Heart Circ. Physiol. 278</i>(6). 1908-1915. </br>
 		[3] Li, G. & Feng, J. & Yue, L. & Carrier, M. & Nattel, S. (1996). Evidence for Two Components of Delayed Rectifier K+ Current in Human Ventricular Myocytes. <i>Circulation Research. 78</i>(1). 689-696. </br>
 		[4] Virag, L. & Iost, N. & Opincariu, M. & Szolnoky, J. & Szecsi, J. & Bogats, G. & Szenohradszky, P. & Varro. A. & Papp, J.G. (2001). The slow component of the delayed rectifier potassium current in undiseased human ventricular myocytes. <i>Cardiovascular Research. 49</i>(4). 790-797. </br>
-		[5] Wang, Z. & Fermini, B. & Nattel, S. (1994). Rapid and slow components of delayed rectifier current in human atrial myocytes. <i>Cardiovascular Research. 28</i>(10). 1540-1546. </br></p>
-	</body>
+		[5] Wang, Z. & Fermini, B. & Nattel, S. (1994). Rapid and slow components of delayed rectifier current in human atrial myocytes. <i>Cardiovascular Research. 28</i>(10). 1540-1546. </br>
+	</p>
+</body>
 </html>
