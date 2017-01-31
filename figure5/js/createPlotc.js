@@ -99,12 +99,14 @@ define([
 	
 	// define our axes
 	chart.addAxis("x", {
-	title: "V (mV)", titleOrientation: "away"
+	title: "V (mV)", titleOrientation: "away",max:63,min:-43
 	});
 	chart.addAxis("y", {
 		vertical: true,
 		title: "I (pA/pF)",
 		titleGap: 25,
+		max: 10.2,
+		min:-0.2,
 	});
 	
 	// Add the tooltip for data points
