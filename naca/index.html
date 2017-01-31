@@ -62,72 +62,9 @@
 	<body class="claro" style="width: 100%">
 		<h1><b>TenTusscher et al. 2004: Na<sup>+</sup>/Ca<sup>+</sup> Exchanger Current</b></h1>
 		<p></p>
-		<p> The equation for this component in the Tusscher model is presented below. Hover over the relevant component and parameter(s) to find out about their derivation and why these specific equations/values are used. </p>
+		<p> The equation for this component in the Tusscher model is presented below.  </p>
 		<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-			<div class="tooltip"><img src="https://latex.codecogs.com/svg.latex?I_{NaCa}" title="I_{NaCa}" align="middle" /> 
-				<span class="tooltiptext">This component is based on the formulation developed in the CRN model, Courtemanche et al. (1998). The model of this paper exists in the <a href="https://models.physiomeproject.org/workspace/courtemanche_ramirez_nattel_1998" target="_blank"> physiome repository </a> and the related component is called slow_delayed_rectifier_K_channel. It is assumed that the component is selective for potassium ions. <sup>[1]</sup></span>
-			</div>
-			 =
-			<div> 
-			<div class="tooltip"> <img src="https://latex.codecogs.com/svg.latex?k_{NaCa}" title="k_{NaCa}" align="middle"/>
-				<span class="tooltiptext">The value of this parameter is derived from Pereon et al. (2000) <sup>[2]</sup>. It is based on data obtained from experiments done on human ventricular tissue at 37 &degC; these are the desired conditions for the Tusscher model.</span>
-			</div>
-			<sup>
-			<div>
-			e
-			<sup>
-			<div class="tooltip"> &gamma;
-				<span class="tooltiptext"></span>
-			</div>
-			VF/RT
-			</sup
-			<img src="https://latex.codecogs.com/gif.latex?Na_{i}^{3}Ca_{o}" title="Na_{i}^{3}Ca_{o}" align="top"/>
-			- e
-			<sup>
-			(
-			<div class="tooltip"> &gamma;
-				<span class="tooltiptext"></span>
-			</div>
-			-1)VF/RT
-			</sup>
-			<img src="https://latex.codecogs.com/gif.latex?Na_{o}^{3}Ca_{i}" title="Na_{o}^{3}Ca_{i}" align="top"/>
-			<div class="tooltip"> &alpha;
-				<span class="tooltiptext"></span>
-			</div>
-			</div>
-			</sup>
-			
-			<sub>
-			<div>
-			(
-			<div class="tooltip"> <img src="https://latex.codecogs.com/svg.latex?K_{mNai}^{3}" title="K_{mNai}^{3}" align="top"/>
-				<span class="tooltiptext">The value of this parameter is derived from Pereon et al. (2000) <sup>[2]</sup>. It is based on data obtained from experiments done on human ventricular tissue at 37 &degC; these are the desired conditions for the Tusscher model.</span>
-			</div>
-			+ 
-			<img src="https://latex.codecogs.com/gif.latex?Na_{o}^{3}" title="Na_{o}^{3}" align="top"/>
-			)
-			(
-			<div class="tooltip"> <img src="https://latex.codecogs.com/svg.latex?K_{mCa}" title="K_{mCa}" align="top"/>
-				<span class="tooltiptext">The value of this parameter is derived from Pereon et al. (2000) <sup>[2]</sup>. It is based on data obtained from experiments done on human ventricular tissue at 37 &degC; these are the desired conditions for the Tusscher model.</span>
-			</div>
-			+
-			<img src="https://latex.codecogs.com/gif.latex?Ca_{o}" title="Ca_{o}" align="top"/>
-			)
-			(1 + 
-			<div class="tooltip"> <img src="https://latex.codecogs.com/svg.latex?k_{sat}" title="k_{sat}" align="top"/>
-				<span class="tooltiptext">The value of this parameter is derived from Pereon et al. (2000) <sup>[2]</sup>. It is based on data obtained from experiments done on human ventricular tissue at 37 &degC; these are the desired conditions for the Tusscher model.</span>
-			</div>
-			e
-			<sup>
-			(
-			<div class="tooltip"> &gamma;
-				<span class="tooltiptext"></span>
-			</div>
-			-1)VF/RT
-			</sup>
-			)
-			</div>			
-			</sub>
+			<img src="https://latex.codecogs.com/gif.latex?I_{NaCa}&space;=&space;k_{NaCa}\tfrac{e^{\gamma&space;VF/RT}Na_{i}^{3}Ca_{o}\&space;-\&space;e^{(\gamma&space;-&space;1)&space;VF/RT}Na_{o}^{3}Ca_{i}\alpha&space;}{(K_{mNai}^{3}\&space;&plus;\&space;Na_{o}^{3})(K_{mCa}\&space;&plus;\&space;Ca_{o})(1\&space;&plus;\&space;k_{sat}e^{(\gamma&space;-&space;1)&space;VF/RT})}" title="I_{NaCa} = k_{NaCa}\tfrac{e^{\gamma VF/RT}Na_{i}^{3}Ca_{o}\ -\ e^{(\gamma - 1) VF/RT}Na_{o}^{3}Ca_{i}\alpha }{(K_{mNai}^{3}\ +\ Na_{o}^{3})(K_{mCa}\ +\ Ca_{o})(1\ +\ k_{sat}e^{(\gamma - 1) VF/RT})}" />
 		</div>
 		
 		<p>
