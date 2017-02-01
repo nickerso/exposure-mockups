@@ -54,23 +54,39 @@ define([
 					});
 				});
 				
-				//This set of functions highlights the entity when the mouse is plaed over it, before 
-				//resetting the stroke value after a short delay. Note that it occasionally gets stuck 
-				//highlighted, for reasons I don't yet understand
+				/*
+				  This set of functions highlights the entity when the mouse is placed over it, before 
+				  resetting the stroke value after the mouse is then removed. It seems it changes the stroke to
+				  the one that is the the stroke value of the final declared element in the index.html
+				  document. This means that the issue is irrelevant if the outline (stroke) colours
+				  of all the elements are the same.
+				*/
+				var a = document.getElementById("diagram1");
+				var innerElement=a.contentDocument;
+				var elementId=innerElement.getElementById(id);
+				var originalStroke = elementId.style.stroke;
+				
 				svg.addEventListener("mouseenter", function(e){
 					//Set a variables that allow access to the properties we want
 					var entity = AllEntities[diagramObjectId][e.srcElement.id];
 					var a = document.getElementById("diagram1");
 					var innerElement=a.contentDocument;
 					var elementId=innerElement.getElementById(entity.id);
-					var originalStroke=elementId.style.stroke
+					var originalStroke = elementId.style.stroke;
+					//alert("1 "+originalStroke)
 					//Change the stroke value, and then reset it after a certain period of time
-				    elementId.style.stroke="00ffff";
-					setTimeout(function() {
-						elementId.style.stroke= originalStroke;
-						}, 750);
-				} );
-				
+					elementId.style.stroke="00ffff";
+					return originalStroke
+					
+				});
+				svg.addEventListener("mouseout", function(e){
+						var entity = AllEntities[diagramObjectId][e.srcElement.id];
+						var a = document.getElementById("diagram1");
+						var innerElement=a.contentDocument;
+						var elementId=innerElement.getElementById(entity.id);
+						//alert("2 "+originalStroke)
+						elementId.style.stroke=originalStroke;
+				});
 				svg.addEventListener("click", function(e) {
 					var entity = AllEntities[diagramObjectId][e.srcElement.id];
 					console.debug(entity);
@@ -104,12 +120,23 @@ define([
 							}));
 
 							menu.addChild(new MenuItem({
+								onClick: function(){alert("This would do something")},
 								label: (entity.id+" Action 2")
 							}));
 
 							menu.addChild(new MenuItem({
-								onClick: function(){alert("This would bring up a graph or something")},
-								label: (entity.id+" Action 3")
+								/*
+								  This function simply scrolls to a given point on the window.
+								  In this instance it goes to the top of the graph, but this
+								  could easily be modified so that tou could b taken to an 
+								  equation or paragraph somewhere else in the document
+								*/
+								
+								onClick: function(){
+									var graphPos=figure1GoesHere.getBoundingClientRect()
+									window.scrollTo(0, graphPos.top)	
+								},
+								label: (entity.id+": go to graph")
 							}));
 	
 							menu.addChild(new MenuSeparator());
@@ -128,9 +155,10 @@ define([
 								label: "Other Actions",
 								popup: submenu
 							}));
-						  
+					
 							menu.placeAt("menus");
 							menu.startup();
+						
 						});
 												
 					//alert("This would pop up a context menu for the object: " + entity.id);
