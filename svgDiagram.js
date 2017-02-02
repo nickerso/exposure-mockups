@@ -59,8 +59,9 @@ define([
 				  resetting the stroke value after the mouse is then removed. It seems it changes the stroke to
 				  the one that is the the stroke value of the final declared element in the index.html
 				  document. This means that the issue is irrelevant if the outline (stroke) colours
-				  of all the elements are the same.
+				  of all the elements are the same. It's still a work in progress.
 				*/
+			
 				var a = document.getElementById("diagram1");
 				var innerElement=a.contentDocument;
 				var elementId=innerElement.getElementById(id);
@@ -73,18 +74,15 @@ define([
 					var innerElement=a.contentDocument;
 					var elementId=innerElement.getElementById(entity.id);
 					var originalStroke = elementId.style.stroke;
-					//alert("1 "+originalStroke)
 					//Change the stroke value, and then reset it after a certain period of time
 					elementId.style.stroke="00ffff";
-					return originalStroke
-					
+					return originalStroke	
 				});
 				svg.addEventListener("mouseout", function(e){
 						var entity = AllEntities[diagramObjectId][e.srcElement.id];
 						var a = document.getElementById("diagram1");
 						var innerElement=a.contentDocument;
 						var elementId=innerElement.getElementById(entity.id);
-						//alert("2 "+originalStroke)
 						elementId.style.stroke=originalStroke;
 				});
 				svg.addEventListener("click", function(e) {
@@ -108,34 +106,59 @@ define([
 				    //create a new menu
 					require(["dijit/Menu", "dijit/MenuItem", "dijit/PopupMenuItem", "dijit/MenuSeparator", "dojo/domReady!"], 
 					function(Menu, MenuItem, PopupMenuItem, MenuSeparator){
-						// create the Menu container
+						// create the Menu 
 							var menu = new Menu({
 								//targetNodeIds:["menus"]
 							});
 							
 						//create menu items
 							menu.addChild(new MenuItem({
-								onClick: function(){alert(entity.id+" Action 1 was clicked")},
-								label: (entity.id + " Action 1")
+								/*This function below uses the name of an element in AllEntities
+								  to call an element in the html document that has the same name.
+								*/
+								onClick: function(){
+									var tag = entity.equations
+									var htmlTag = document.getElementById(tag)
+									var info = htmlTag.getBoundingClientRect()
+									window.scrollTo(0, info.top)	
+									},
+								label: (entity.id + " equations")
 							}));
 
 							menu.addChild(new MenuItem({
-								onClick: function(){alert("This would do something")},
-								label: (entity.id+" Action 2")
+								//This function essentially does the same thing as the one above. 
+								onClick: function(){
+									var tag = entity.info
+									var htmlTag = document.getElementById(tag)
+									var info = htmlTag.getBoundingClientRect()
+									window.scrollTo(0, info.top)	
+								
+									},
+								
+								label: (entity.id+" information")
 							}));
 
 							menu.addChild(new MenuItem({
+								//id: entityGraphs,
 								/*
 								  This function simply scrolls to a given point on the window.
 								  In this instance it goes to the top of the graph, but this
 								  could easily be modified so that tou could b taken to an 
-								  equation or paragraph somewhere else in the document
-								*/
+								  equation or paragraph somewhere else in the document. An issue 
+								  with this is that each important piece of information you want
+								  to link to must be created in a uniquely identified html element,
+								  which must then be put into the following function in the place
+								  of 'figure1GoesHere'. (see the function immediately above for 
+								  an example). This will also need a major overhaul to make it 
+								  far more general.
+								
 								
 								onClick: function(){
 									var graphPos=figure1GoesHere.getBoundingClientRect()
-									window.scrollTo(0, graphPos.top)	
-								},
+									window.scrollTo(0, graphPos.top)
+																
+								},*/
+								//onClick: function(){alert("The functionality for this isnt finished yet")},
 								label: (entity.id+": go to graph")
 							}));
 	
@@ -158,14 +181,28 @@ define([
 					
 							menu.placeAt("menus");
 							menu.startup();
-						
+							
+							/*console.dir(menu);
+							menu.attachEvent("click", function(e){
+								if (MenuItem.label == entity.id+ " equations"){
+									alert("entityEquations was clicked")
+								} else if (MenuItem.label == entity.id+ " information"){
+									alert("entityInfo was clicked")
+								} else if (MenuItem.label == entity.id+" : go to graphs"){
+									("entityGraphs was clicked")
+								} else {
+									alert("nothing registered")
+								};
+							});*/
 						});
+						
 												
 					//alert("This would pop up a context menu for the object: " + entity.id);
 					// see https://dojotoolkit.org/reference-guide/1.10/dijit/Menu.html to get started...
 				}, false);				
 			}
 			AllEntities[diagramObjectId] = entities;
+			//console.dir(AllEntities)
 		}
 	};
 });
