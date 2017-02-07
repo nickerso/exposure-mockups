@@ -40,25 +40,33 @@
 						id: "membrane",
 						message: "This is the membrane",
 						equations: "membrane_equations",
-						info: "membrane_info"
+						info: "membrane_info",
+						graph: "membrane_graph",
+						preview: "membrane_preview"
 					},
 					i_Na: {
 						id: "i_Na",
 						message: "The sodium channel",
 						equations: "i_Na_equations",
-						info: "i_Na_info"
+						info: "i_Na_info",
+						graph: "i_Na_graph",
+						preview: "i_Na_preview"
 					},
 					i_K: {
 						id: "i_K",
 						message: "The potassium current",
 						equations: "i_K_equations",
-						info: "i_K_info"
+						info: "i_K_info",
+						graph: "i_K_graph",
+						preview: "i_K_preview"
 					},
 					i_leak: {
 						id: "i_leak",
 						message: "The leakage current",
 						equations: "i_leak_equations",
-						info: "i_leak_info"
+						info: "i_leak_info",
+						graph: "i_leak_graph",
+						preview: "i_leak_preview"
 					}
 				});
 			});
@@ -71,7 +79,9 @@
 		</object>
 		<!--NEW, creates a DOM element for the menu to be bound to-->	
         <span id="menus"> </span>
-		<!--NEW, see above^-->		
+		
+		<!--This section of breaks and stuff is purely there to demonstrate the functions in the  script file-->
+		
 		</br>
 		</br>
 		</br>
@@ -89,6 +99,7 @@
 		</br>
 		</br>
 		</br>
+		<object id="i_leak_graph" data="/example-diagram/images/polyfauna1.png" type="image/png"></object>
 		</br>
 		</br>
 		</br>
@@ -110,11 +121,12 @@
 		</br>
 		</br>
 		</br>
+		<object id="i_Na_graph" data="/example-diagram/images/polyfauna2.png" type="image/png"></object>
 		</br>
 		</br>
 		</br>
 		</br>
-		<p id="i_Na_info">This would be equations relating to i_Na<p>
+		<p id="i_Na_info">This would be information relating to i_Na<p>
 		</br>
 		</br>
 		</br>
@@ -129,11 +141,12 @@
 		</br>
 		</br>
 		</br>
+		<object id="i_K_graph" data="/example-diagram/images/polyfauna3.png" type="image/png"></object>
 		</br>
 		</br>
 		</br>
 		</br>
-		<p id="i_K_info">This would be equations relating to i_K<p>
+		<p id="i_K_info">This would be information relating to i_K<p>
 		</br>
 		</br>
 		</br>
@@ -149,11 +162,13 @@
 		</br>
 		</br>
 		</br>
+		<object id="membrane_graph" data="/example-diagram/images/polyfauna4.png" type="image/png"></object>
 		</br>
 		</br>
 		</br>
 		</br>
-		<p id="membrane_info">This would be equations relating to the membrane<p>
+		</br>
+		<p id="membrane_info">This would be information relating to the membrane<p>
 		</br>
 		</br>
 		</br>
@@ -166,9 +181,28 @@
 		</br>
 		</br>
 		<p>And then we talk about the same figure X from the paper, which could be a link to the paper itself.</p>
+		<!-- Images to place in the modal -->
+		<img id="membrane_preview" src="/example-diagram/images/polyfauna5.png" alt="membrane" width="300" height="200" class="hiddenImage">
+		<img id="i_Na_preview" src="/example-diagram/images/polyfauna5.png" alt="i_Na" width="300" height="200" class="hiddenImage">
+		<img id="i_K_preview" src="/example-diagram/images/polyfauna5.png" alt="i_K" width="300" height="200" class="hiddenImage">
+		<img id="i_leak_preview" src="/example-diagram/images/polyfauna5.png" alt="i_leak" width="300" height="200" class="hiddenImage">
+
+		<!-- The modal itself -->
+		<div id="myModal" class="modal">
+
+			<!-- This creates the close button -->
+			<span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+		
+			<!-- This is what is contained in the modal. This will be modified by svgDiagram.js -->
+			<img class="modal-content" id="img01">
+
+			<!-- This is the caption for the modal image. Again, this will be modified by svgDiagram.js -->
+			<div id="caption"></div>
+		</div>
 		<div class="figure">
 			<div class="chart" id="figure1GoesHere"></div>
 			<div class="legend" id="figure1Legend"></div>
 		</div>
+		 
 	</body>
 </html>
