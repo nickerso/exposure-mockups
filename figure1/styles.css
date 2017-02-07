@@ -1,13 +1,8 @@
 @CHARSET "UTF-8";
 
-div.figure1a {
+div.figure1 {
 	width: 80%;
 	border: 1px;
 	margin: 0 auto;
 }
 
-div.figure1b {
-	width: 80%;
-	border: 1px;
-	align: centre;
-}
