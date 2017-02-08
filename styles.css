@@ -72,3 +72,14 @@ div.legend {
 img.hiddenImage{
 	display: none;
 }
+
+@keyframes swinging{
+	0%{transform: rotate(50deg);}
+	50%{transform: rotate(-50deg);}
+	100%{transform: rotate(50deg);}
+}
+
+.swingingimage {
+	transform-origin: 50% 0;
+	animation: swinging 3.5s ease-in-out forwards infinite;
+}

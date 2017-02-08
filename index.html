@@ -75,8 +75,26 @@
 	<body class="claro" style="width: 100%">
 		<h1>PMR Exposure Mockup: example with diagram</h1>
 		<p>Basic stuff for test purposes.</p>
-		<object id="diagram1" data="/example-diagram/images/drawing.svg" type="image/svg+xml" style="width: 40%">
-		</object>
+		<object id="diagram1" data="/example-diagram/images/drawing.svg" type="image/svg+xml" style="width: 40%" >
+		</object> 
+		</br>
+		<button id="button">Click Me To Swing Image</button>
+		<script> 
+		document.getElementById(button);
+		button.addEventListener("click", function(e){
+			d=document.getElementById("diagram1")
+			d.className= " swingingimage"
+		});
+		</script>
+		<button id="button2">Click Me To Stop Swinging Image</button>
+		<script> 
+		document.getElementById(button2);
+		button2.addEventListener("click", function(e){
+			d=document.getElementById("diagram1")
+			d.className= " "
+		});
+		</script>
+		
 		<!--NEW, creates a DOM element for the menu to be bound to-->	
         <span id="menus"> </span>
 		
