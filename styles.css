@@ -69,17 +69,17 @@ div.legend {
     cursor: pointer;
 }
 /* This class is intended to hide images*/
-img.hiddenImage{
+.hiddenImage{
 	display: none;
 }
 
 @keyframes swinging{
-	0%{transform: rotate(50deg);}
-	50%{transform: rotate(-50deg);}
-	100%{transform: rotate(50deg);}
+	0%{transform: rotate(20deg);}
+	50%{transform: rotate(-20deg);}
+	100%{transform: rotate(20deg);}
 }
 
 .swingingimage {
 	transform-origin: 50% 0;
-	animation: swinging 3.5s ease-in-out forwards infinite;
+	animation: swinging 3.05s ease-in-out forwards infinite;
 }
