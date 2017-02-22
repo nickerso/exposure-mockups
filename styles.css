@@ -73,13 +73,44 @@ div.legend {
 	display: none;
 }
 
-@keyframes swinging{
-	0%{transform: rotate(20deg);}
-	50%{transform: rotate(-20deg);}
-	100%{transform: rotate(20deg);}
-}
+/* This keyframe is obsolete now that it can be created in a javascript script tag in index.html
+   I've left it here in case more tests need to be done when fine tuning the javascript version
+	@keyframes swinging{	
+	0%{transform: rotate(0deg);},
+	3.448%{transform: rotate(10deg);},
+	6.896%{transform: rotate(20deg);},
+	10.344%{transform: rotate(30deg);},
+	13.792%{transform: rotate(40deg);},
+	17.24%{transform: rotate(50deg);},
+	20.688%{transform: rotate(60deg);},
+	24.136%{transform: rotate(70deg);},
+	27.584%{transform: rotate(60deg);},
+	31.032%{transform: rotate(50deg);},
+	34.48%{transform: rotate(40deg);},
+	37.928%{transform: rotate(30deg);},
+	41.376%{transform: rotate(20deg);},
+	44.824%{transform: rotate(10deg);},
+	48.272%{transform: rotate(0deg);},
+	51.72%{transform: rotate(10deg);},
+	55.168%{transform: rotate(20deg);},
+	58.616%{transform: rotate(30deg);},
+	62.064%{transform: rotate(40deg);},
+	65.512%{transform: rotate(50deg);},
+	68.96%{transform: rotate(60deg);},
+	72.408%{transform: rotate(70deg);},
+	75.856%{transform: rotate(60deg);},
+	79.304%{transform: rotate(50deg);},
+	82.752%{transform: rotate(40deg);},
+	86.2%{transform: rotate(30deg);},
+	89.648%{transform: rotate(20deg);},
+	93.096%{transform: rotate(10deg);},
+	96.541%{transform: rotate(0deg);},
+	100%{transform: rotate(0deg);}
+	
+}*/
 
 .swingingimage {
+	
 	transform-origin: 50% 0;
 	animation: swinging 3.05s ease-in-out forwards infinite;
 }
