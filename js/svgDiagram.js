@@ -21,6 +21,7 @@
 
 		// global variables
 		var AllEntities = {};
+		var SVGDocument = {};
 		
 
 		// This returned object becomes the defined value of this module
@@ -33,11 +34,11 @@
 			// this will set up all the required callbacks
 			registerEntities: function(diagramObjectId, entities) {
 				var obj = dom.byId(diagramObjectId);
-				var doc = obj.getSVGDocument();
+				SVGDocument = obj.getSVGDocument();
 				for (var name in entities)
 				{
 					var id = entities[name].id;
-					var svg = doc.getElementById(id);
+					var svg = SVGDocument.getElementById(id);
 					
 					//this is to make sure the menu disappears once the screen is clicked off the menu on the 
 					//window. I attempted to use another mouse event in order to avoid down reusing code, but it 
@@ -194,13 +195,21 @@
 								menu.addChild(new MenuItem({
 									label: ("Click to model flow through "+entity.id),
 									onClick: function(){require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+										console.debug(entity);
+										console.log("entity.moleculeNumber = " + entity.moleculeNumber);
 										if (entity.moleculeNumber < 3){
 											alert("molecule flow through "+entity.id+" is too small to have any effect");
 										}else if (entity.moleculeNumber >= 3 && entity.moleculeNumber < 6){
-											require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+											require(["dojo/dom-attr","dojox/gfx", "dojox/gfx/fx"], function(domAttr, gfx, gfxFx) {
 											var clicked = entity.id
 											alert(clicked+", "+entity.id);
-										    entity.applyTransform(gfx.matrix.scale({ xx: 1.2, yy: 1.2}))});	
+											var svg = SVGDocument.getElementById(entity.id);
+											console.debug(svg);
+											var currentTransform = domAttr.get(svg, "transform");
+											var newTransform = "scale(2, 3)";
+											domAttr.set(svg, "transform", newTransform);
+											//svg.transform = gfx.matrix.scale({ "xx": 1.2, "yy": 1.2});
+											});
 										}else if (entity.moleculeNumber >= 6 && entity.moleculeNumber < 8){
 											require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
 											var clicked = entity.id
