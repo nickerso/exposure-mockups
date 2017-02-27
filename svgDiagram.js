@@ -87,10 +87,12 @@
 							elementId.style.stroke=originalStroke;
 					});
 					
+					
+					
 					svg.addEventListener("click", function(e) {
 						var entity = AllEntities[diagramObjectId][e.srcElement.id];
+						alert("This would do something for "+entity.id)
 						console.debug(entity);
-						alert("This would do something for clicking on the object: " + entity.id);
 					}, false);
 					svg.addEventListener("contextmenu", function(e) {
 						var entity = AllEntities[diagramObjectId][e.srcElement.id];
@@ -187,13 +189,64 @@
 									},
 									label: (entity.id+" preview"),
 								}));
+								
+								//This section of code should create a menu
+								menu.addChild(new MenuItem({
+									label: ("Click to model flow through "+entity.id),
+									onClick: function(){require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+										if (entity.moleculeNumber < 3){
+											alert("molecule flow through "+entity.id+" is too small to have any effect");
+										}else if (entity.moleculeNumber >= 3 && entity.moleculeNumber < 6){
+											require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+											var clicked = entity.id
+											alert(clicked+", "+entity.id);
+										    entity.applyTransform(gfx.matrix.scale({ xx: 1.2, yy: 1.2}))});	
+										}else if (entity.moleculeNumber >= 6 && entity.moleculeNumber < 8){
+											require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+											var clicked = entity.id
+											alert(clicked+", "+entity.id);
+											entity.applyTransform(gfx.matrix.scale({ xx: 1.6, yy: 1.6}))});
+										}else if (entity.moleculeNumber >=8 && entity.moleculeNumber < 10){
+											require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+											var clicked = entity.id
+											alert(clicked+", "+entity.id);
+											entity.applyTransform(gfx.matrix.scale({ xx: 2, yy: 2}))});
+										}else {
+											alert("The flow through "+entity.id+" is too large or something along those lines");
+										};
+									})}
+								}))
+								
+								/*menu.addChild(new MenuItem({
+									label: ("Click to change colour of "+entity.id),
+									onClick: function(){require(["dojox/gfx", "dojox/gfx/fx"], function(gfx, gfxFx) {
+										if (entity.moleculeNumber < 3){
+											alert("molecule flow through "+entity.id+" is too small to have any effect");
+										}else if (entity.moleculeNumber >= 3 && entity.moleculeNumber < 6){
+											alert(entity+", "+entity.id);
+										    gfx.animateFill({
+												shape: entity,
+												duration: 500,
+												colour: {start: "blue", end: "green"}
+											}).play();	
+										}else if (entity.moleculeNumber >= 6 && entity.moleculeNumber < 8){
+											alert(entity+", "+entity.id);
+											entity.applyTransform(gfx.matrix.scale({ xx: 1.6, yy: 1.6}));
+										}else if (entity.moleculeNumber >=8 && entity.moleculeNumber < 10){
+											alert(entity+", "+entity.id);
+											entity.applyTransform(gfx.matrix.scale({ xx: 2, yy: 2}));
+										}else {
+											alert("The flow through "+entity.id+" is too large or something along those lines");
+										};
+									})}
+								}))*/
 		
 								menu.addChild(new MenuSeparator());
 								
 								var submenu = new Menu();
 								
 								submenu.addChild(new MenuItem({
-									label:("Other "+membrane_graph+" Action 1")
+									label:("Other "+entity.id+" Action 1")
 								}));
 								
 								submenu.addChild(new MenuItem({
@@ -210,9 +263,18 @@
 							});							
 						//alert("This would pop up a context menu for the object: " + entity.id);
 						// see https://dojotoolkit.org/reference-guide/1.10/dijit/Menu.html to get started...
-					}, false);				
+					}, false);
+						
+					/*  This script will compute an array of values, from them
+						creating a set of angles to be fed into the css style 
+						.swingingimage in order to allow the animation of a 
+						swinging element to be controlled by the array.
+					*/
+
+					
 				}
 				AllEntities[diagramObjectId] = entities;
+				
 			}
 		};
 	});
