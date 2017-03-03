@@ -114,3 +114,23 @@ div.legend {
 	transform-origin: 50% 0;
 	animation: swinging 3.05s ease-in-out forwards infinite;
 }
+
+/* This keframe and style are a tester for scaling a dojox gfx created svg. */
+.scaleimage {
+	
+	transform-origin: center;
+	animation: scaling 3.05s ease-in-out forwards infinite;
+	
+}
+
+/*@keyframes scaling {
+	0%{transform: scale(1)}
+	0%{transform: scale(1)}
+	0%{transform: scale(1)}
+	0%{transform: scale(1)}
+	0%{transform: scale(1)}
+	0%{transform: scale(1)}
+	
+}*/
+
+
