@@ -75,7 +75,8 @@
 						equations: "membrane_equations",
 						info: "membrane_info",
 						graph: "membrane_graph",
-						preview: "membrane_preview"
+						preview: "membrane_preview",
+						moleculeNumber: 7
 					},  
 					i_Na: {
 						id: "i_Na",
@@ -92,7 +93,8 @@
 						equations: "i_K_equations",
 						info: "i_K_info",
 						graph: "i_K_graph",
-						preview: "i_K_preview"
+						preview: "i_K_preview",
+						moleculeNumber: 8
 					},
 					i_leak: {
 						id: "i_leak",
@@ -100,7 +102,8 @@
 						equations: "i_leak_equations",
 						info: "i_leak_info",
 						graph: "i_leak_graph",
-						preview: "i_leak_preview"
+						preview: "i_leak_preview",
+						moleculeNumber: 30000
 					}
 				});
 			});
@@ -196,7 +199,7 @@
 		//swinging animation in a format identical to that of a css keyframe.
 		var swingingKeyframe = keyframe.toString();
 		var finalKeyframe = swingingKeyframe.replace(/,/g,' ')
-		alert(finalKeyframe)
+		//alert(finalKeyframe)
 		
 		
 		// This segment of code generates the swinging keyframe in javascript rather than having it initialised in
@@ -207,6 +210,112 @@
 		customStyleSheet = document.styleSheets[0];
 		customStyleSheet.insertRule("@keyframes swinging{"+finalKeyframe+"}", 0);
 	
+		</script>
+		<script>
+		/* This script is designed to create a small svg image using dojo gfx in order to use it in demonstrations*/
+		require(["dojox/gfx", "dojo/dom-attr", "dojo/domReady"], function(gfx){
+				var surface = gfx.createSurface("surfaceElement", 400, 400);
+				var rectangle = surface.createRect({ x:20, y:200, width:400, height:5}).setFill("red").setStroke("blue");
+				rectangle.rawNode.id = "membrane"
+				var ellipse = surface.createEllipse({ cx: 200, cy: 200, rx:25, ry:50 }).setFill("blue").setStroke("red");
+				ellipse.rawNode.id = "channel"
+				
+		/*  At the moment, any animations through dojox gfx are controlled by the buttons 3 and 4. It doesn't seem like dojox gfx 
+		    supports the kind of animations we're looking for, in that from what I've found out, you can only specify the start 
+			and end states of the animations which means that you would not be able to control the animation with an array of 
+			variables like above with the swinging animation. A possible workaround would be simply to add a css style to the svg 
+			element in question. The style could be created with a similar approach to that of the swinging animation above and
+			thus be controlled by an array of variables. I've managed to get it to work below, recycling a large ammount of code
+			from the swinging animation to get the array controlling the animation. */
+			
+			var scaleArray = [1, 1.2, 1.4, 1.6, 1.8, 2]
+			
+			var numberOfSteps = (4*scaleArray.length)+2;
+			var sizeOfStep = 100/(numberOfSteps-1);
+			var valueOfStep = 0;
+			var j = 0;
+			var percentageArrays = [];
+			for (j=0; j<numberOfSteps; j++){
+				percentageArrays[j] = valueOfStep;
+				valueOfStep = valueOfStep+sizeOfStep
+			}
+		
+			var finalArray = [];
+			var w = 0;
+			for (w=0; w<numberOfSteps; w++){
+				if ((w+1)!= numberOfSteps){
+					finalArray[w+1] = scaleArray[w%(scaleArray.length)];
+				}
+
+				if (w%(scaleArray.length * 2)==0){
+					finalArray[w] = 1;
+				} else if (w == (4 * scaleArray.length + 1)){
+				finalArray[w] = 1;
+				} 
+			
+				if ((w>scaleArray.length && w<(scaleArray.length*2)) || (w>(scaleArray.length * 3) && w<(scaleArray.length * 4))) {
+					finalArray[w] = scaleArray[(scaleArray.length - w%(scaleArray.length)-1)];
+				}
+
+				if (w > ((angleArray.length * 2)-1) && (w+1 != numberOfSteps)){
+					finalArray[w] = 1/(finalArray[w]);
+				} 
+			}
+			
+			var r = 0;
+			var keyframes = [];
+			for (r=0; r<numberOfSteps; r++){
+				keyframes[r] = (percentageArrays[r]+"% {transform: scale("+finalArray[r]+");}")
+			}
+		
+			var scalingKeyframe = keyframes.toString();
+			var finalKeyframes = scalingKeyframe.replace(/,/g,' ')
+	
+			var styleSheetElements = document.createElement("style"), customStyleSheet;
+			document.head.appendChild(styleSheetElements);	
+			customStyleSheet = document.styleSheets[0];
+			customStyleSheet.insertRule("@keyframes scaling{"+finalKeyframes+"}", 0);
+			
+			
+				document.getElementById(button3);
+				button3.addEventListener("click", function(e){
+				/*require(["dojox/gfx", "dojox/gfx/fx", "dojo/fx/easing"], function(gfxFx){	
+					var animation = new dojox.gfx.fx.animateTransform({
+						duration: 700,
+						shape: ellipse,
+						transform: [{
+							name: "scaleAt",
+							start: [1, 200, 200], // Starts at 0 degree rotation at center-point 200x200
+							end: [2, 200, 200]  // Ends at 360 degrees
+						}]
+					});
+						animation.play()
+					})*/
+					ellipse.setFill("aquamarine");
+					channel.setAttribute("class", "scaleimage")
+					
+				})
+				
+	
+				document.getElementById(button4);
+					button4.addEventListener("click", function(e){
+					/*require(["dojox/gfx", "dojox/gfx/fx", "dojo/fx/easing"], function(gfxFx){	
+					var animation = new dojox.gfx.fx.animateTransform({
+						duration: 700,
+						shape: ellipse,
+						transform: [{
+							name: "scaleAt",
+							start: [2, 200, 200], // Starts at 0 degree rotation at center-point 200x200
+							end: [1, 200, 200]  // Ends at 360 degrees
+						}]
+					});
+						animation.play()
+					})*/
+					ellipse.setFill("blue")
+					channel.setAttribute("class", " ")
+				})
+
+		});
 		</script>
 											 
 	</head>
@@ -222,6 +331,7 @@
 		button.addEventListener("click", function(e){
 			d=document.getElementById("diagram1")
 			d.className= " swingingimage"
+			
 		});
 		</script>
 		<button id="button2">Click Me To Stop Swinging Image</button>
@@ -235,6 +345,10 @@
 		
 		<!--NEW, creates a DOM element for the menu to be bound to-->	
         <span id="menus"> </span>
+		<div id="surfaceElement"></div>
+		<button id="button3">Click to start the scaling animation</button>
+		<button id="button4">Click to stop the scaling animation</button>
+		
 		
 		<!--This section of breaks and stuff is purely there to demonstrate the functions in the  script file-->
 		
