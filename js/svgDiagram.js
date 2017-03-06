@@ -206,8 +206,14 @@
 											var svg = SVGDocument.getElementById(entity.id);
 											console.debug(svg);
 											var currentTransform = domAttr.get(svg, "transform");
-											var newTransform = "scale(2, 3)";
-											domAttr.set(svg, "transform", newTransform);
+											var newTransform = "scale(1.2, 1.2)";
+											SVGDocument.getElementById(entity.id).style.transform = "scale(1.2, 1.2)";
+											SVGDocument.getElementById(entity.id).style.transformOrigin = "50% 50% 0";
+											
+											//var newTranslate = "50%, 50%"
+											//domAttr.set(svg, "transform", newTransform);
+											//domAttr.set(svg, "transform-origin", newTranslate);
+											
 											//svg.transform = gfx.matrix.scale({ "xx": 1.2, "yy": 1.2});
 											});
 										}else if (entity.moleculeNumber >= 6 && entity.moleculeNumber < 8){
